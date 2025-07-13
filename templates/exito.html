@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block title %}Proforma Generada{% endblock %}
+{% block content %}
+<div class="table-container text-center">
+    <h2 style="color: var(--success-color);">¡Proforma Generada con Éxito!</h2>
+    <p>La proforma ha sido guardada en su listado.</p>
+    <div style="margin-top: 30px;">
+        <a href="/api/proforma/{{ proforma_id }}/pdf" class="btn btn-success">Descargar PDF</a>
+        <a href="/lista_proformas" class="btn" style="background-color: var(--secondary-color);">Ver todas las proformas</a>
+    </div>
+</div>
+{% endblock %}

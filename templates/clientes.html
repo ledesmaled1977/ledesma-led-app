@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block title %}Gestion de Clientes - Ledesma LED{% endblock %}
+{% block content %}
+<header class="page-header">
+    <h1>Gestion de Clientes</h1>
+</header>
+
+<div class="grid-container">
+    <div class="form-container-box">
+        <h3 id="form-title">Añadir Nuevo Cliente</h3>
+        <form id="form-cliente">
+            <input type="hidden" id="cliente-id">
+            <div class="form-group">
+                <label for="nombre">Nombre / Razón Social *</label>
+                <input type="text" id="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="ruc_dni">RUC / DNI</label>
+                <input type="text" id="ruc_dni">
+            </div>
+            <div class="form-group">
+                <label for="direccion">Dirección</label>
+                <input type="text" id="direccion">
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input type="text" id="telefono">
+            </div>
+            <div class="form-group">
+                <label for="email">Correo Electrónico</label>
+                <input type="email" id="email">
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-success">Guardar Cliente</button>
+                <button type="button" id="btn-cancel-edit" class="btn btn-secondary" style="display: none;">Cancelar Edición</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="table-container-box">
+        <h3>Mis Clientes</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>RUC/DNI</th>
+                        <th>Contacto</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-clientes">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

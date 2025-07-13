@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block title %}Dashboard - Ledesma LED{% endblock %}
+{% block content %}
+<header class="page-header">
+    <h1>Dashboard</h1>
+</header>
+<section class="dashboard-cards">
+    <div class="card">
+        <h4>Total de Proformas</h4>
+        <p class="value">{{ total_proformas }}</p>
+    </div>
+    <div class="card">
+        <h4>Monto Total Cotizado</h4>
+        <p class="value">S/ {{ "%.2f"|format(total_monto) }}</p>
+    </div>
+</section>
+<section class="table-container">
+    <h3>Actividad de los Últimos 12 Meses</h3>
+    <div class="chart-container">
+        <canvas id="proformasChart"></canvas>
+    </div>
+</section>
+<section class="table-container">
+    <h3>Últimas Proformas Creadas</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Nro. Cotización</th>
+                <th>Cliente</th>
+                <th>Fecha</th>
+                <th>Monto</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for proforma in ultimas_proformas %}
+            <tr>
+                <td>{{ proforma.cotizacion_nro }}</td>
+                <td>{{ proforma.cliente }}</td>
+                <td>{{ proforma.fecha.strftime('%d/%m/%Y') }}</td>
+                <td>S/ {{ "%.2f"|format(proforma.monto_total) }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="4">No has creado ninguna proforma todavía.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar Sesión - Ledesma LED</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="login-register-container">
+    <div class="form-box">
+        <div class="text-center">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" style="width: 100px;">
+            <h2>Iniciar Sesión</h2>
+        </div>
+        <form action="/login" method="post">
+            <div class="form-group">
+                <label for="username">Usuario</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Ingresar</button>
+        </form>
+        {% if error %}
+            <p class="error-message text-center mt-3">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

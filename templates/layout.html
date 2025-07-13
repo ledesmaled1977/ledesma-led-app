@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Ledesma LED{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
+            <h3>{{ session.fullname }}</h3>
+        </div>
+       <nav class="sidebar-nav">
+            <ul>
+                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                <li><a href="{{ url_for('crear_proforma') }}">Crear Proforma</a></li>
+                <li><a href="{{ url_for('lista_proformas') }}">Ver Proformas</a></li>
+                <li><a href="{{ url_for('clientes') }}">Clientes</a></li> <li><a href="{{ url_for('logout') }}">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

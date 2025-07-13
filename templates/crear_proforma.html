@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block title %}Crear Proforma - Ledesma LED{% endblock %}
+{% block content %}
+<header class="page-header">
+    <h1 id="page-title">Crear Nueva Proforma</h1>
+</header>
+<input type="hidden" id="proforma_id" value="{{ proforma_id or '' }}">
+<div class="table-container">
+    <div class="form-grid">
+        <div class="form-group">
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" required>
+        </div>
+        <div class="form-group">
+            <label for="cotizacion_nro">Cotización Nro.:</label>
+            <input type="text" id="cotizacion_nro" required>
+        </div>
+        <div class="form-group autocomplete-container"> <label for="cliente">Cliente:</label>
+            <input type="text" id="cliente" required autocomplete="off">
+            <div class="autocomplete-suggestions" id="cliente-suggestions"></div>
+        </div>
+    </div>
+    <hr style="margin: 20px 0;">
+    <h3>Agregar Productos</h3>
+    <div class="form-grid">
+        <div class="form-group">
+            <label for="item">Item:</label>
+            <input type="text" id="item">
+        </div>
+        <div class="form-group">
+            <label for="precio_unitario">Precio Unitario:</label>
+            <input type="number" id="precio_unitario" step="0.01">
+        </div>
+        <div class="form-group">
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" step="1">
+        </div>
+    </div>
+    <button id="btn-agregar-producto" class="btn btn-primary" style="width: auto; margin-top: 10px;">Agregar Producto</button>
+    
+    <h3 style="margin-top: 30px;">Items de la Proforma</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Costo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tabla-items">
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" style="text-align: right; font-weight: bold;">TOTAL:</td>
+                <td id="total-proforma" style="font-weight: bold;">S/ 0.00</td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+    
+    <div style="margin-top: 30px; text-align: right;">
+        <button id="btn-generar-cotizacion" class="btn btn-success">Generar Cotización</button>
+    </div>
+</div>
+{% endblock %}
+
