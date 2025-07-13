@@ -11,7 +11,7 @@ import io
 
 # --- INICIALIZACIÓN Y CONFIGURACIÓN ---
 app = Flask(__name__)
-app.secret_key = 'tu_super_clave_secreta_y_larga_aqui' 
+app.secret_key = 'MakroSurco2024-' 
 
 # Configuración de MySQL
 app.config['MYSQL_HOST'] = 'localhost'
